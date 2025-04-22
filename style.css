@@ -10,28 +10,6 @@
     margin: auto;
 }
 
-/* #navbar {
-    max-height: 88px;
-    min-height: 88px;
-    padding: 20px 40px;
-    background-color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    max-width: 100%;
-    position: fixed;
-    top: 0;
-    width: 100vw;
-    z-index: 1000;
-}
-
-.nav-left {
-    align-items: center;
-    display: flex;
-    flex-grow: 1;
-    z-index: 1;
-} */
-
 #navbar {
     max-height: 88px;
     min-height: 88px;
@@ -121,14 +99,6 @@
         order: 2;
     }
 
-    /* .nav-left {
-        flex: 1;
-    }
-
-    .nav-btn {
-        order: 3;
-    } */
-
     .item {
         display: none;
         width: 100%;
@@ -161,6 +131,12 @@
 
     .nav-btn {
         text-align: center;
+        background: #2f1c6a;
+    }
+
+    .nav-btn a {
+        color: white;
+        font-size: 18px;
     }
 }
 
@@ -178,30 +154,6 @@
         font-size: 14px;
     }
 }
-
-
-
-/* .item ul li {
-    display: inline-block;
-
-}
-
-.item ul li a {
-    margin: 20px;
-    text-decoration: none;
-    color: black;
-} */
-
-/* .nav-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid black;
-    border-radius: 8px;
-    padding: 10px 16px;
-    margin-left: 20px;
-    cursor: pointer;
-} */
 
 .boxShadow {
     box-shadow: 0px 0px 24px 0px rgba(0, 0, 0, 0.16);
@@ -263,7 +215,7 @@
 }
 
 #head {
-    margin: 150px 55px 0px 55px;
+    margin: 150px 40px 0px 40px;
     padding: 0 40px;
     display: flex;
     align-items: center;
@@ -600,7 +552,7 @@
 }
 
 .mixed-cards {
-    margin: 0 187px;
+    /* margin: 0 187px; */
     padding: 80px 40px;
 }
 
@@ -920,7 +872,7 @@
 
 .service-bottom-section {
     padding: 80px 40px;
-    margin: 100px 187px 0px 187px;
+    margin: 100px 0px 0px 0px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -958,7 +910,7 @@
 
 .peoples {
     padding: 0px 40px;
-    margin: 0 187px;
+    /* margin: 0 187px; */
 }
 
 .peoples-head h2 {
@@ -1063,7 +1015,8 @@
 
 .heading-section {
     padding: 0px 40px;
-    margin: 80px 187px;
+    /* margin: 80px 187px; */
+    margin: 80px 0px;
 }
 
 .heading-content {
@@ -1108,7 +1061,7 @@
 
 .faqs {
     padding: 80px 40px;
-    margin: 80px 230px;
+    margin: 80px 40px;
     background: #f4f5ff;
     border-radius: 16px;
     display: flex;
@@ -1116,14 +1069,6 @@
     justify-content: center;
     flex-direction: column;
 }
-
-
-/* FAQs */
-/* .faqs {
-    padding: 80px 40px;
-    background: #f4f5ff;
-    border-radius: 16px;
-} */
 
 .faqs .max-web {
     max-width: 1208px;
@@ -1226,7 +1171,6 @@
 .footer-content {
     display: flex;
     justify-content: space-between;
-    margin: 0 187px;
     padding-bottom: 40px;
     border-bottom: 1px solid #2f1c6a;
 }
@@ -1258,7 +1202,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 40px 187px 0;
+    margin: 40px 0 0;
 }
 
 .footer-logo img {
@@ -1278,8 +1222,6 @@
     width: 35px;
     height: 35px;
 }
-
-/* Existing styles remain unchanged; only appending/updating pagination and related styles */
 
 /* Pagination Containers */
 .widget-container,
@@ -1437,27 +1379,6 @@
 
 /* Responsive Design */
 @media (max-width: 1200px) {
-
-    /* #navbar,
-    .nav-bottom,
-    #head,
-    .partner,
-    .pricing,
-    .mixed-cards,
-    .service,
-    .double-section,
-    .peoples,
-    .heading-section,
-    .faqs,
-    .launch,
-    .footer {
-        margin: 0 20px;
-    } */
-
-    /* #navbar {
-
-    } */
-
     #head {
         margin: 150px 20px 0px 20px;
         padding: 80px 0px;
@@ -1496,6 +1417,10 @@
 
     .mixed-card-3 {
         width: 100%;
+    }
+
+    .mixed-full-card-left-bottom-content h2 {
+        font-size: 24px;
     }
 
     .service-card {
@@ -1558,8 +1483,7 @@
     }
 
     .main-head,
-    .service-card,
-    .footer-content {
+    .service-card {
         flex-direction: column;
         align-items: center;
     }
@@ -1571,75 +1495,69 @@
     .faqs {
         margin: 80px;
     }
-
-
-    /*
-    .head-img,
-    .tables,
-    .footer-section,
-    .peoples-full-card {
-        width: 100%;
-        max-width: 500px;
-    } */
-
-    /* .widget {
-        flex-direction: column;
-        gap: 20px;
-    } */
-
-
-
-
-
 }
 
-@media (max-width: 768px) {
-    /* .nav-left,
-    .nav-btn {
-        margin: 10px 0;
+@media (max-width: 780px) {
+    #head {
+        padding: 80px 20px;
     }
 
-    .item ul li a {
-        margin: 10px;
+    .partner {
+        padding: 0 40px;
     }
 
-    .nav-bottom {
-        flex-direction: column;
-        gap: 10px;
-        top: auto;
-        position: relative;
-    } */
-
-    .head-left h4 {
-        font-size: 32px;
+    .pricing-head {
+        padding: 20px 0px;
+        margin: 80px 0px;
     }
 
-    .pricing-head,
-    .service-head,
-    .peoples-head,
-    .faqs,
-    .heading-section {
-        padding: 0 20px;
+    .pricing-item {
+        margin: 0 0px;
+    }
+
+    .mixed-cards {
+        padding: 80px 20px;
     }
 
     .mixed-full-cards {
         grid-template-columns: 1fr;
     }
 
+    .service {
+        padding: 80px 40px;
+    }
+
+    .service-head {
+        padding: 0px;
+        margin: 0px 0px 48px;
+    }
+
+    .service-card {
+        padding: 0 0px;
+    }
+
+    .left-double-section-content {
+        padding: 60px 10px;
+    }
+
+    .right-double-section img {
+        width: 100%;
+    }
+
+    .mixed-full-card-left img {
+        border-bottom-left-radius: 12px;
+    }
+
     .mixed-full-card-left,
     .mixed-full-card-left-bottom,
     .mixed-card-3 {
         flex-direction: column;
-        align-items: center;
+        /* align-items: center; */
         width: 100%;
     }
 
     .mixed-full-card-left img,
     .mixed-full-card-left-bottom img {
-        width: 100%;
-    }
-
-    .right-double-section img {
         width: 100%;
     }
 
@@ -1650,9 +1568,92 @@
     .peoples-card-bottom-text {
         height: auto;
     }
+
+    .service-bottom-right-content {
+        padding: 0px;
+    }
+
+    .heading-section,
+    .peoples {
+        padding: 0px 0px;
+    }
+
+    .faqs {
+        margin: 80px 40px;
+    }
+
+    .footer-content {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 20px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 30px;
+        align-items: baseline;
+    }
 }
 
 @media (max-width: 480px) {
+
+    #head {
+        margin: 150px 20px 0px 20px;
+        padding: 50px 0px;
+    }
+
+    .close-btn {
+        top: 4px;
+        right: 8px;
+        width: 12px;
+    }
+
+    .partner {
+        padding: 0 20px;
+    }
+
+    .pricing {
+        padding: 20px;
+    }
+
+    .pricing-head {
+        margin: 0px 0px 80px;
+    }
+
+    .mixed-cards {
+        padding: 80px 0px;
+        margin: 0 20px;
+    }
+
+    .service {
+        padding: 80px 20px;
+    }
+
+    .left-double-section-content {
+        padding: 60px 0px;
+    }
+
+    .heading-section,
+    .peoples {
+        padding: 0px 0px;
+    }
+
+    .faqs {
+        margin: 80px 20px;
+        padding: 40px 20px;
+    }
+
+    .launch {
+        padding: 80px 20px;
+    }
+
+    .footer {
+        padding: 80px 20px 40px;
+    }
+
+    .faq-item h3 {
+        align-items: baseline;
+    }
 
     .head-left h4,
     .pricing-head h2,
@@ -1662,7 +1663,8 @@
     .launch-content h2,
     .mixed-cards h1,
     .left-double-section-content h1,
-    .heading-text h1 {
+    .heading-text h1,
+    .service-bottom-right-content h2 {
         font-size: 24px;
     }
 

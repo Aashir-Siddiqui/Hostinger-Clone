@@ -2,14 +2,12 @@ document.querySelector('.hamburger').addEventListener('click', () => {
     document.querySelector('.item').classList.toggle('active');
 });
 
-// Close button for nav-bottom
 let closeBtn = document.querySelector(".close-btn img");
 closeBtn.addEventListener("click", () => {
     let navBottom = document.querySelector(".nav-bottom");
     navBottom.style.display = "none";
 });
 
-// FAQ accordion
 document.querySelectorAll('.faq-item').forEach(item => {
     item.addEventListener('click', () => {
         const answer = item.querySelector('.faq-answer');
@@ -24,7 +22,6 @@ document.querySelectorAll('.faq-item').forEach(item => {
     });
 });
 
-// Navbar shadow on scroll
 function scrollShadow() {
     const navbar = document.getElementById("navbar");
     if (window.scrollY > 0) {
@@ -35,7 +32,6 @@ function scrollShadow() {
 }
 window.addEventListener('scroll', scrollShadow);
 
-// Pagination for Partner, Peoples, and Pricing
 function setupPagination(containerSelector, itemsSelector, dotsSelector) {
     const container = document.querySelector(containerSelector);
     const itemsContainer = document.querySelector(itemsSelector);
@@ -61,29 +57,24 @@ function setupPagination(containerSelector, itemsSelector, dotsSelector) {
             return;
         }
 
-        console.log('Showing item:', index); // Debug
+        console.log('Showing item:', index);
 
-        // Remove active from all
         items.forEach(item => item.classList.remove('active'));
         dots.forEach(dot => dot.classList.remove('active'));
 
-        // Add active to current
         items[index].classList.add('active');
         dots[index].classList.add('active');
 
-        // Slide
         itemsContainer.style.transform = `translateX(-${index * 90}%)`;
     }
 
-    // Set click events
     dots.forEach((dot, index) => {
         dot.addEventListener('click', () => {
-            console.log('Dot clicked:', index); // Debug
+            console.log('Dot clicked:', index);
             showItem(index);
         });
     });
 
-    // Swipe support
     let touchStartX = 0;
     let touchEndX = 0;
 
@@ -101,11 +92,9 @@ function setupPagination(containerSelector, itemsSelector, dotsSelector) {
         }
     });
 
-    // Initialize
     showItem(0);
 }
 
-// Initialize pagination
 setupPagination('.widget-container', '.widget', '.widget-container .pagination-dots');
 setupPagination('.peoples-container', '.peoples-cards', '.peoples-container .pagination-dots');
 setupPagination('.pricing-container', '.pricing-table', '.pricing-container .pagination-dots');
