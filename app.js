@@ -2,10 +2,17 @@ document.querySelector('.hamburger').addEventListener('click', () => {
     document.querySelector('.item').classList.toggle('active');
 });
 
-let closeBtn = document.querySelector(".close-btn img");
-closeBtn.addEventListener("click", () => {
-    let navBottom = document.querySelector(".nav-bottom");
-    navBottom.style.display = "none";
+document.addEventListener("DOMContentLoaded", () => {
+    const closeBtn = document.querySelector(".close-btn img");
+    const navBottom = document.querySelector(".nav-bottom");
+    const head = document.querySelector("#head");
+
+    closeBtn.addEventListener("click", () => {
+        navBottom.style.display = "none";
+        if (window.innerWidth <= 780) {
+            head.style.margin = "65px 20px 0px 20px";
+        }
+    });
 });
 
 document.querySelectorAll('.faq-item').forEach(item => {
@@ -59,13 +66,17 @@ function setupPagination(containerSelector, itemsSelector, dotsSelector) {
 
         console.log('Showing item:', index);
 
-        items.forEach(item => item.classList.remove('active'));
+        items.forEach(item => {
+            item.classList.remove('active');
+            item.classList.add('inactive');
+        });
         dots.forEach(dot => dot.classList.remove('active'));
 
         items[index].classList.add('active');
+        items[index].classList.remove('inactive');
         dots[index].classList.add('active');
 
-        itemsContainer.style.transform = `translateX(-${index * 90}%)`;
+        itemsContainer.style.transform = `translateX(-${index * 100}%)`;
     }
 
     dots.forEach((dot, index) => {
@@ -84,7 +95,7 @@ function setupPagination(containerSelector, itemsSelector, dotsSelector) {
 
     itemsContainer.addEventListener('touchend', (e) => {
         touchEndX = e.changedTouches[0].screenX;
-        const currentIndex = Math.abs(parseInt(itemsContainer.style.transform.replace(/[^0-9-]/g, '') / 100) || 0);
+        const currentIndex = Math.round(Math.abs(parseInt(itemsContainer.style.transform.replace(/[^0-9-]/g, '') || 0) / 100));
         if (touchStartX - touchEndX > 50 && currentIndex < items.length - 1) {
             showItem(currentIndex + 1);
         } else if (touchEndX - touchStartX > 50 && currentIndex > 0) {

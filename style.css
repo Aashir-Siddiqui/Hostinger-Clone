@@ -28,6 +28,7 @@
 .nav-left {
     display: flex;
     align-items: center;
+    gap: 16px;
 }
 
 .item {
@@ -48,6 +49,11 @@
     text-decoration: none;
     color: #2F1C6A;
     font-weight: 500;
+    transition: .3s all ease;
+}
+
+.item ul li a:hover {
+    color: #8C85FF;
 }
 
 .logo {
@@ -64,6 +70,7 @@
     display: flex;
     align-items: center;
     cursor: pointer;
+    margin-right: 16px;
 }
 
 .lan img {
@@ -86,11 +93,11 @@
     font-size: 24px;
     cursor: pointer;
     color: #2F1C6A;
+    margin-left: 16px;
 }
 
 @media (max-width: 1200px) {
     #navbar {
-        flex-wrap: wrap;
         padding: 10px 20px;
     }
 
@@ -142,7 +149,11 @@
 
 @media (max-width: 480px) {
     .nav-left .logo img {
-        width: 50%;
+        width: 100%;
+    }
+
+    .lan {
+        margin-right: 25px;
     }
 
     .lan img {
@@ -339,7 +350,7 @@
 
 .widget {
     display: flex;
-    gap: 88px;
+    gap: 50px;
     align-items: flex-start;
     justify-content: space-between;
 }
@@ -373,7 +384,7 @@
     background-color: #00b67a;
     padding: 6px;
     color: white;
-    border-radius: 3p
+    border-radius: 3px;
 }
 
 .logos {
@@ -552,7 +563,6 @@
 }
 
 .mixed-cards {
-    /* margin: 0 187px; */
     padding: 80px 40px;
 }
 
@@ -574,6 +584,16 @@
     justify-content: center;
     gap: 10px;
     margin: 48px 0;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 10px;
+}
+
+@media (max-width: 750px) {
+    .mixed-cards-button {
+        justify-content: flex-start;
+        -webkit-overflow-scrolling: touch;
+    }
 }
 
 .mixed-active-button {
@@ -602,6 +622,10 @@
     font-weight: 600;
     border: none;
     transition: .3s ease-in-out;
+    flex-shrink: 0;
+    min-width: 120px;
+    white-space: nowrap;
+    text-align: center;
 }
 
 .mixed-buttons:hover {
@@ -836,7 +860,6 @@
     display: flex;
     align-items: center;
     background-color: #fafbff;
-
 }
 
 .right-double-section {
@@ -910,7 +933,6 @@
 
 .peoples {
     padding: 0px 40px;
-    /* margin: 0 187px; */
 }
 
 .peoples-head h2 {
@@ -950,7 +972,7 @@
     height: 100px;
     display: flex;
     align-items: flex-start;
-    gap: 10px
+    gap: 10px;
 }
 
 .peoples-card img {
@@ -1015,7 +1037,6 @@
 
 .heading-section {
     padding: 0px 40px;
-    /* margin: 80px 187px; */
     margin: 80px 0px;
 }
 
@@ -1230,6 +1251,7 @@
     position: relative;
     overflow: hidden;
     width: 100%;
+    padding: 5px;
 }
 
 .widget,
@@ -1240,21 +1262,18 @@
     transition: transform 0.5s ease-in-out;
 }
 
-.widget-item {
-    width: 0;
-}
-
+.widget-item,
 .peoples-full-card,
 .pricing-item {
     flex: 0 0 auto;
     width: 100%;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
-/* Pagination Dots */
 .pagination-dots {
     display: none;
     text-align: center;
-    padding: 60px 0 40px 0;
+    padding: 20px 0;
 }
 
 .dot {
@@ -1280,29 +1299,41 @@
 /* Responsive Pagination */
 @media (min-width: 1200px) {
 
-    .widget,
+    .widget {
+        justify-content: space-between;
+    }
+
     .peoples-cards,
     .pricing-table {
         flex-wrap: wrap;
         justify-content: space-between;
     }
 
-    .widget-item,
-    .peoples-full-card,
-    .pricing-item {
+    .widget-item {
         width: auto;
-        flex: 1;
+        flex: 0 0 22%;
         max-width: calc(25% - 16px);
-        /* For partner and pricing */
     }
 
     .peoples-full-card {
         max-width: calc(33.33% - 16px);
-        /* For peoples (3 items) */
+    }
+
+    .pricing-item {
+        width: auto;
+        flex: 1;
+        max-width: calc(25% - 16px);
     }
 
     .pagination-dots {
         display: none;
+    }
+
+    .widget-item,
+    .peoples-full-card,
+    .pricing-item {
+        opacity: 1;
+        transform: scale(1);
     }
 }
 
@@ -1315,56 +1346,61 @@
     }
 
     .widget {
-        gap: 0;
-        justify-content: none;
+        gap: 24px;
+        justify-content: flex-start;
     }
 
     .peoples-cards,
     .pricing-table {
-        gap: 210px;
+        gap: 16px;
         justify-content: flex-start;
     }
 
-    .widget-item,
-    .pricing-item {
-        flex: 0 0 100%;
-        max-width: 100%;
-        margin: 0;
+    .widget-item {
+        flex: 0 0 96%;
+        width: 0;
+        margin: 0 auto;
+    }
+
+    .pricing-item,
+    .peoples-full-card {
+        flex: 0 0 96%;
+        width: 100%;
+        margin: 0 auto;
     }
 
     .pagination-dots {
-        display: block;
-    }
-
-    /* .partner .wordpress {
-        padding-bottom: 20px;
-    } */
-
-    .peoples {
-        margin: 0 40px;
-    }
-
-    .peoples-full-card {
-        height: auto;
-        margin: 0 10px;
-        max-width: 700px;
-    }
-
-    .pricing-item {
-        margin: 0 10px;
-        max-width: 500px;
+        display: flex;
+        justify-content: center;
+        padding: 20px 0;
     }
 }
 
 @media (max-width: 480px) {
+
+    .widget-item.inactive,
+    .peoples-full-card.inactive,
+    .pricing-item.inactive {
+        opacity: 0.5;
+        transform: scale(0.95);
+    }
+
+    .widget-item.active {
+        opacity: 1;
+        transform: scale(1);
+        margin-left: 24px;
+    }
+
+    .peoples-full-card.active,
+    .pricing-item.active {
+        opacity: 1;
+        transform: scale(1);
+    }
+
     .dot {
         width: 10px;
         height: 10px;
         margin: 0 4px;
-    }
-
-    .pagination-dots {
-        padding: 12px 0;
     }
 
     .peoples-card-bottom-text {
@@ -1430,7 +1466,6 @@
     .service-head {
         margin: 0px 48px 48px;
     }
-
 
     .double-section {
         flex-direction: column-reverse;
@@ -1552,7 +1587,6 @@
     .mixed-full-card-left-bottom,
     .mixed-card-3 {
         flex-direction: column;
-        /* align-items: center; */
         width: 100%;
     }
 
@@ -1571,6 +1605,10 @@
 
     .service-bottom-right-content {
         padding: 0px;
+    }
+
+    .service-bottom-right-content h1 {
+        font-size: 24px;
     }
 
     .heading-section,
@@ -1596,9 +1634,8 @@
 }
 
 @media (max-width: 480px) {
-
     #head {
-        margin: 150px 20px 0px 20px;
+        margin: 130px 20px 0px 20px;
         padding: 50px 0px;
     }
 
@@ -1610,6 +1647,15 @@
 
     .partner {
         padding: 0 20px;
+    }
+
+    .partner .wordpress {
+        gap: 8px;
+    }
+
+    .partner .wordpress p {
+        font-size: 14px;
+        color: #1d1e20;
     }
 
     .pricing {
@@ -1633,9 +1679,12 @@
         padding: 60px 0px;
     }
 
-    .heading-section,
-    .peoples {
+    .heading-section {
         padding: 0px 0px;
+    }
+
+    .peoples {
+        padding: 0 10px;
     }
 
     .faqs {
