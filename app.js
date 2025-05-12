@@ -1,5 +1,53 @@
-document.querySelector('.hamburger').addEventListener('click', () => {
-    document.querySelector('.item').classList.toggle('active');
+document.addEventListener("DOMContentLoaded", () => {
+    const hamburger = document.querySelector(".hamburger");
+    const menuItem = document.querySelector(".item");
+
+    hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        menuItem.classList.toggle("active");
+    });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    const top = document.querySelector(".top");
+
+    function toggleTopButton() {
+        if (window.scrollY > 0) {
+            top.style.display = "block";
+        } else {
+            top.style.display = "none";
+        }
+    }
+
+    window.addEventListener("scroll", toggleTopButton);
+
+    top.addEventListener("click", () => {
+        setTimeout(() => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }, 100);
+    });
+
+    toggleTopButton();
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    const timeButton = document.querySelector(".btn2");
+
+    function updateTime() {
+        const now = new Date();
+        let hours = now.getHours();
+        const minutes = now.getMinutes().toString().padStart(2, "0");
+        const seconds = now.getSeconds().toString().padStart(2, "0");
+        const ampm = hours >= 12 ? "PM" : "AM";
+        hours = hours % 12 || 12;
+        hours = hours.toString().padStart(2, "0");
+        const timeString = `${hours}:${minutes}:${seconds} ${ampm}`;
+        timeButton.textContent = timeString;
+    }
+
+    updateTime();
+
+    setInterval(updateTime, 1000);
 });
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -45,26 +93,7 @@ function setupPagination(containerSelector, itemsSelector, dotsSelector) {
     const items = document.querySelectorAll(`${itemsSelector} > *`);
     const dots = document.querySelectorAll(`${dotsSelector} .dot`);
 
-    if (!container || !itemsContainer || !dots.length || !items.length) {
-        console.error('Pagination setup failed:', {
-            container: !!container,
-            itemsContainer: !!itemsContainer,
-            dots: dots.length,
-            items: items.length,
-            containerSelector,
-            itemsSelector,
-            dotsSelector
-        });
-        return;
-    }
-
     function showItem(index) {
-        if (index < 0 || index >= items.length) {
-            console.warn('Invalid index:', index);
-            return;
-        }
-
-        console.log('Showing item:', index);
 
         items.forEach(item => {
             item.classList.remove('active');
@@ -81,7 +110,6 @@ function setupPagination(containerSelector, itemsSelector, dotsSelector) {
 
     dots.forEach((dot, index) => {
         dot.addEventListener('click', () => {
-            console.log('Dot clicked:', index);
             showItem(index);
         });
     });
